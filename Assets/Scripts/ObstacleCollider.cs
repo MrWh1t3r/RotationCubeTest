@@ -11,10 +11,12 @@ public class ObstacleCollider : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = false;
             gameObject.tag = "Untagged";
             GetComponent<Rigidbody>().AddForce(Random.Range(5,10), Random.Range(0,5),Random.Range(0,5),ForceMode.Impulse);
+            Invoke("DestroyObject", 2f);
         }
-        else
-        {
-            Debug.Log("3");
-        }
+    }
+
+    private void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }
